@@ -2,7 +2,7 @@
 
 int main()
 {
-    InitWindow(512, 448, "Test");
+    InitWindow(512, 448, "Bit Survival Game");
     SetTargetFPS(60);
 
     GAME game;

@@ -1,11 +1,12 @@
 #pragma once
-#include "include/game/Player.hpp"
+#include "../raylib/raylib.h"
 
-class GAME
+class Player
 {
     public:
+        Player();
         void Draw();
         void Update();
     private:
-        Player player;
+        short int x, y;
 };
