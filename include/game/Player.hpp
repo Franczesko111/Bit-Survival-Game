@@ -19,4 +19,6 @@ class Player
         short int x, y;
         Texture2D texture;
         Spritesheet sheet_head, sheet_legs;
+
+        void Texture(Spritesheet *data, char offset);
 };

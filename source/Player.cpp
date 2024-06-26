@@ -1,5 +1,7 @@
 #include "../include/game/Player.hpp"
 
+
+// * PUBLIC FUNCTIONS
 Player::Player()
 {
     x = GetScreenWidth() / 2 + 2;
@@ -24,10 +26,16 @@ void Player::Update()
     y += (IsKeyDown(KEY_S) - IsKeyDown(KEY_W)) * GAME_SCALE;
 
     sheet_head.source = Rectangle{0, 0, PLAYER_WIDTH, PLAYER_HEIGHT};
-    sheet_head.dest = Rectangle{(float)x, (float)y-14, sheet_head.source.width * GAME_SCALE, sheet_head.source.height * GAME_SCALE};
-    sheet_head.origin = Vector2{sheet_head.dest.width/2, sheet_head.dest.height/2};
+    Texture(&sheet_head, -14);
 
     sheet_legs.source = Rectangle{PLAYER_WIDTH * 2, 0, PLAYER_WIDTH, PLAYER_HEIGHT};
-    sheet_legs.dest = Rectangle{(float)x, (float)y+14, sheet_legs.source.width * GAME_SCALE, sheet_legs.source.height * GAME_SCALE};
-    sheet_legs.origin = Vector2{sheet_legs.dest.width/2, sheet_legs.dest.height/2};
+    Texture(&sheet_legs, 14);
+}
+
+
+// * PRIVATE FUNCTIONS
+void Player::Texture(Spritesheet *data, char offset)
+{
+    data->dest = Rectangle{(float)x, (float)y+offset, data->source.width * GAME_SCALE, data->source.height * GAME_SCALE};
+    data->origin = Vector2{data->dest.width/2, data->dest.height/2};
 }
